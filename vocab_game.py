@@ -102,11 +102,11 @@ ans2 = st.text_input(
     value=st.session_state.ans2_val,
 )
 ans3 = st.text_input(
-    "ข้อ 3: I drive my `c_r` to work every morning . 🚗",
+    "ข้อ 3: I drive my `c _ r` to work every morning . 🚗",
     value=st.session_state.ans3_val,
 )
 ans4 = st.text_input(
-    "ข้อ 4: I need a `p_ _cil` to write this down . 🖊️",
+    "ข้อ 4: I need a `p _ _ c i l` to write this down . 🖊️",
     value=st.session_state.ans4_val,
 )
 # อัปเดตค่าล่าสุดเข้าตัวแปร
@@ -114,9 +114,6 @@ st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2
 st.session_state.ans3_val = ans3 
 st.session_state.ans4_val = ans4
-
-# ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มข้อ 3, 4 ตรงนี้
-
 
 # 4. ปุ่มส่งคำตอบ
 if "start" in st.session_state and not st.session_state.get("is_ended", False):

@@ -109,6 +109,7 @@ ans4 = st.text_input(
     "ข้อ 4: I need a `p _ _ c i l` to write this down . 🖊️",
     value=st.session_state.ans4_val,
 )
+
 # อัปเดตค่าล่าสุดเข้าตัวแปร
 st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2

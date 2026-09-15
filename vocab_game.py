@@ -13,6 +13,7 @@ if "ans3_val" not in st.session_state:
 if "ans4_val" not in st.session_state:
     st.session_state.ans4_val = ""
 
+
 # 📌 ฟังก์ชันเคลียร์ค่าเมื่อกดปุ่มเริ่มใหม่
 def reset_game():
     st.session_state.ans1_val = ""  # เคลียร์ค่าช่องข้อ 1
@@ -27,7 +28,7 @@ def reset_game():
 # 📌 ฟังก์ชัน MessageBox (Dialog)
 # ----------------------------------------------------
 @st.dialog("📊 สรุปผลการเล่นเกม")
-def show_result_dialog(ans1, ans2):
+def show_result_dialog(ans1, ans2,ans3,ans4):
     st.balloons()
     score = 0
 
@@ -35,7 +36,7 @@ def show_result_dialog(ans1, ans2):
     u_ans2 = ans2.strip().lower()
     u_ans3 = ans3.strip().lower()
     u_ans4 = ans4.strip().lower()
-    
+  
     # ตรวจข้อ 1
     if u_ans1 == "apple":
         st.success("✅ ข้อ 1: ถูกต้อง")
@@ -49,24 +50,21 @@ def show_result_dialog(ans1, ans2):
         score += 1
     else:
         st.error(f"❌ ข้อ 2: ยังไม่ถูกต้อง (คุณตอบ '{u_ans2}')")
-
+      
     # ตรวจข้อ 3
-    if u_ans2 == "Car":
+    if u_ans3 == "car":
         st.success("✅ ข้อ 3: ถูกต้อง")
         score += 1
     else:
         st.error(f"❌ ข้อ 3: ยังไม่ถูกต้อง (คุณตอบ '{u_ans3}')")
 
-     # ตรวจข้อ 4
-    if u_ans2 == " Pencil":
+    # ตรวจข้อ 4
+    if u_ans4 == "pencil":
         st.success("✅ ข้อ 4: ถูกต้อง")
         score += 1
     else:
         st.error(f"❌ ข้อ 4: ยังไม่ถูกต้อง (คุณตอบ '{u_ans4}')")
-
-
-    # ✏️ [พื้นที่สำหรับนักเรียน]: เพิ่มตรวจข้อ 3, 4 ตรงนี้
-
+    
     st.info(f"🏆 ได้คะแนนรวม: {score} คะแนน")
 
     if score == 4:
@@ -102,18 +100,17 @@ ans2 = st.text_input(
     value=st.session_state.ans2_val,
 )
 ans3 = st.text_input(
-    "ข้อ 3: I drive my `c _ r` to work every morning . 🚗",
+    "ข้อ 3: I drive my `c _ r` to work every morning . 🚗 ",
     value=st.session_state.ans3_val,
 )
 ans4 = st.text_input(
-    "ข้อ 4: I need a `p _ _ c i l` to write this down . 🖊️",
+    "ข้อ 4: I need a `p _ _ c i l` to write this down . ✏️",
     value=st.session_state.ans4_val,
-)
-
+)    
 # อัปเดตค่าล่าสุดเข้าตัวแปร
 st.session_state.ans1_val = ans1
 st.session_state.ans2_val = ans2
-st.session_state.ans3_val = ans3 
+st.session_state.ans3_val = ans3
 st.session_state.ans4_val = ans4
 
 # 4. ปุ่มส่งคำตอบ
@@ -130,4 +127,4 @@ if st.session_state.get("is_ended", False):
     show_result_dialog(ans1, ans2, ans3, ans4)
 
 st.divider()
-st.write("นายณัฐกัณย์ ธัญเสรีวงศ์ เลขที่ 12 ม.4/12")
+st.write("นายณัฐกัณย์ ธัญเสรีวงศ์ ")
